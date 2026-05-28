@@ -2,15 +2,13 @@
 
 This repository contains the team's **VolunteerHub** application for the group project.
 
-
-
 ## Repository layout
 
-| Path | Description |
-|------|-------------|
-| `volunteerhub/backend/` | Node.js + Express API, MongoDB (Mongoose), JWT auth |
-| `volunteerhub/frontend/` | Static HTML/CSS/JS UI served by a small Express app |
-| `volunteerhub/docker-compose.yml` | Full-stack Docker setup (MongoDB + API + UI) |
+| Path                                | Description                                         |
+| ----------------------------------- | --------------------------------------------------- |
+| `volunteerhub/backend/`           | Node.js + Express API, MongoDB (Mongoose), JWT auth |
+| `volunteerhub/frontend/`          | Static HTML/CSS/JS UI served by a small Express app |
+| `volunteerhub/docker-compose.yml` | Full-stack Docker setup (MongoDB + API + UI)        |
 
 ## Docker (SIT725 8.2HD)
 
@@ -30,6 +28,7 @@ docker compose up --build
 ```
 
 This starts all required services:
+
 - `mongo` on `27017`
 - `backend` on `5000`
 - `frontend` on `3300`
@@ -44,10 +43,10 @@ The first start may take a few minutes while images build.
 
 ### Access the application
 
-| What | URL |
-|------|-----|
-| **Web UI** | http://localhost:3300 |
-| **API health** | http://localhost:5000/health |
+| What                                  | URL                               |
+| ------------------------------------- | --------------------------------- |
+| **Web UI**                      | http://localhost:3300             |
+| **API health**                  | http://localhost:5000/health      |
 | **Student endpoint (required)** | http://localhost:5000/api/student |
 
 ### `/api/student` response
@@ -71,17 +70,15 @@ cd volunteerhub
 docker compose up --build
 ```
 
-
-
 ### Verify database-backed features (login)
 
 The stack includes MongoDB and auto-seeds demo data on startup. Use these accounts at http://localhost:3300:
 
-| Role | Email | Password |
-|------|--------|----------|
-| Volunteer | `demo.volunteer@volunteerhub.local` | `Pass@12345` |
-| Organisation manager | `manager@volunteerhub.local` | `Pass@12345` |
-| Admin | `admin@volunteerhub.local` | `Pass@12345` |
+| Role                 | Email                                 | Password       |
+| -------------------- | ------------------------------------- | -------------- |
+| Volunteer            | `demo.volunteer@volunteerhub.local` | `Pass@12345` |
+| Organisation manager | `manager@volunteerhub.local`        | `Pass@12345` |
+| Admin                | `admin@volunteerhub.local`          | `Pass@12345` |
 
 After login you should reach the dashboard (`/dashboard`), which confirms JWT auth and MongoDB are working.
 
@@ -102,8 +99,7 @@ docker compose up --build
 
 - **No `.env` file is required for Docker.** Runtime values are set in `volunteerhub/docker-compose.yml` (MongoDB URI, JWT settings, app ports, and student identity for `/api/student`).
 - **Do not commit** `backend/.env` or `frontend/.env` — they are listed in `.gitignore`. Copy from `backend/.env.example` / `frontend/.env.example` only for non-Docker local development.
-
-- For this submission, required runtime values for Docker verification are already provided in `docker-compose.yml`, so markers do not need to source hidden secrets to run the app.
+- For this submission, required runtime values for Docker verification are already provided in `docker-compose.yml`, so you do not need to source hidden secrets to run the app.
 
 ### Troubleshooting
 
@@ -141,8 +137,8 @@ npm run seed
 npm start
 ```
 
-Default URL: **http://localhost:5000**  
-Health check: `GET /health`  
+Default URL: **http://localhost:5000**
+Health check: `GET /health`
 Student endpoint: `GET /api/student`
 
 ### 2. Frontend
